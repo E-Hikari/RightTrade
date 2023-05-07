@@ -31,3 +31,28 @@ function uploadProject() {
   })
 
 }
+
+function receive() {
+  let timerInterval
+Swal.fire({
+  title: 'Conectando com a metamask!',
+  html: 'O processo finalizará em <b></b> milisegundos.',
+  timer: 10000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+}

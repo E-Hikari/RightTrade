@@ -6,10 +6,6 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "./btgdol.sol";
 
-// colocar o tempo de vida do contrato depois do provider falar que entregou o serviço
-// colocar o desaprove para o requester
-// colocar o amount
-
 contract ERC20Holder {
     using SafeERC20 for IERC20;
 

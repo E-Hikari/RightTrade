@@ -1,9 +1,3 @@
-/* FONTS */
-@font-face {
-    src:url(../Fontes/Fontes/Primária/Averta.woff);
-    font-family: fontepadrao;
-}
-
 /* VARIABLES */
 * {
     padding: 0;
@@ -13,7 +7,6 @@
 a {
     text-decoration: none;
     color: #fff;
-    font-family: fontepadrao;
 }
 
 body {

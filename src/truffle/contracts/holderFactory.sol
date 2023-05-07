@@ -17,8 +17,8 @@ contract holderFactory {
     constructor() {
         owner = msg.sender;
         // owner = 0x94F58085492b8DC50AA4f078Cef8f9be22F69e12;
-        // addRequester(0x94F58085492b8DC50AA4f078Cef8f9be22F69e12); // minha carteira
-        // addProvider(0x94F58085492b8DC50AA4f078Cef8f9be22F69e12);  // carteira da hikari
+        // addRequester(0x94F58085492b8DC50AA4f078Cef8f9be22F69e12);
+        // addProvider(0x94F58085492b8DC50AA4f078Cef8f9be22F69e12);  
     }
 
     modifier isOwner() {
@@ -26,7 +26,7 @@ contract holderFactory {
         _;
     }
 
-    // função que adiciona um requester no mapping
+    // function that adds a requester in the mapping
     function addRequester(address _requesterAddress) public {
         requesters[_requesterAddress].push(address(0));
     }
@@ -38,7 +38,7 @@ contract holderFactory {
         return requesters[_requesterAdress][_id];
     }
 
-    // função que adiciona um provider no mapping
+    // function that adds a provider in the mapping
     function addProvider(address _providerAddress) public {
         providers[_providerAddress].push(address(0));
     }

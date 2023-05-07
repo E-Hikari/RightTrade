@@ -26,6 +26,8 @@ function uploadProject() {
         'Seu arquivo foi enviado ao solicitante, em até 7 dias ele retornará com uma resposta!',
         'success'
       )
+      document.getElementById('receive_button').className = 'btn btn-outline-info';
     }
   })
+
 }

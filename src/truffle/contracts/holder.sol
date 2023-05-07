@@ -13,29 +13,26 @@ import "./btgdol.sol";
 contract ERC20Holder {
     using SafeERC20 for IERC20;
 
-    BTGDOL private immutable _token; // código do token BTG DOL
+    // Atributes
+    BTGDOL private immutable _token;
 
-    uint256 private _amount; // atributo que vai receber a quantidade de BTG DOL que o contrato contempla
+    uint256 private _amount;
 
-    address private _moderator; // address da conta que tem privilégios no contrato
+    address private immutable _providerAddress;
+    address private immutable _requesterAddress;
+    address private immutable _moderator;
 
-    address private immutable _providerAddress; // address da conta que tá prestando o serviço
-
-    address private immutable _requesterAddress; // address da conta que tá recebendo o serviço
-
-    bool private desaprove = false; //
-
-    bool private requesterStatus = false; // status do RECEBIMENTO do serviço
-
-    bool private providerStatus = false; // status da CONCLUSÃO do serviço
+    bool private desaprove = false;
+    bool private requesterStatus = false;
+    bool private providerStatus = false;
 
     // Construtor
     constructor(
-        BTGDOL token_, // BTG DOL
-        uint256 amount_, // discutível
-        address requesterAddress_, // discutível
-        address providerAddress_, // discutível
-        address moderator_ // dono da factory
+        BTGDOL token_,
+        uint256 amount_,
+        address requesterAddress_,
+        address providerAddress_,
+        address moderator_
     ) {
         _token = token_;
         _amount = amount_;
@@ -44,16 +41,23 @@ contract ERC20Holder {
         _moderator = moderator_;
     }
 
+    // Modifier that allows the moderator some privileges.
+    // But it can only act if the service is disapproved by the requester.
     modifier isModerator() {
         require(desaprove == true, "This service is not desaproved!");
         require(msg.sender == _moderator, "Not Moderator!");
         _;
     }
 
+    // Functions
+    //----------------------------------------------------------------//
+
+    // Checks if there was a correct transaction for the amount of tokens that the contract contemplates
     function checkAmount() public view returns (bool) {
         return (_amount == getToken().balanceOf(address(this)));
     }
 
+    // Sets the project finalization and approval status.
     function setStatus() public {
         require(
             ((msg.sender == _providerAddress) ||
@@ -70,14 +74,7 @@ contract ERC20Holder {
         }
     }
 
-    function getToken() public view virtual returns (IERC20) {
-        return _token;
-    }
-
-    function getAmount() public view virtual returns (uint256) {
-        return _amount;
-    }
-
+    // Get functions
     function getProviderAddress()
         public
         view
@@ -98,6 +95,14 @@ contract ERC20Holder {
         return _requesterAddress;
     }
 
+    function getToken() public view virtual returns (IERC20) {
+        return _token;
+    }
+
+    function getAmount() public view virtual returns (uint256) {
+        return _amount;
+    }
+
     function getProviderStatus() public view virtual returns (bool) {
         return providerStatus;
     }
@@ -106,12 +111,16 @@ contract ERC20Holder {
         return requesterStatus;
     }
 
+    // Moderator's functions
+    // Allows full refund of the contract value
     function refound() public virtual isModerator {
         uint256 amount = getToken().balanceOf(address(this));
 
         getToken().safeTransfer(getRequesterAddress(), amount);
     }
 
+    // Allows a division agreed between both parties in case there is disapproval by the requester's opinion
+    // Remember that the percentage is the refund amount for the requester
     function agreement(uint256 refoundPercentage) public virtual isModerator {
         uint256 amount = getToken().balanceOf(address(this));
 
@@ -125,6 +134,7 @@ contract ERC20Holder {
         );
     }
 
+    // Pay function when both parties are satisfied
     function release() public virtual {
         require(
             ((providerStatus == true && requesterStatus == true) ||

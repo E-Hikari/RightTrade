@@ -7,7 +7,7 @@ import "./holder.sol";
 import "./btgdol.sol";
 
 contract holderFactory {
-    address public owner; // moderador
+    address public owner;
 
     mapping(address => address[]) requesters;
     mapping(address => address[]) providers;

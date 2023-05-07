@@ -5,3 +5,12 @@ function sweetAlert() {
         'success'
       )
 }
+
+
+function uploadProject() {
+  Swal.fire(
+    'Upload efetuado com sucesso!',
+    '',
+    'success'
+  )
+}

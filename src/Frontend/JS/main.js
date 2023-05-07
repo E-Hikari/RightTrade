@@ -10,3 +10,5 @@ AOS.init({
   anchorPlacement: 'top-bottom', // define qual posição em relação a página deve ativar a animação
 
 });
+
+

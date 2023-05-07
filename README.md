@@ -13,6 +13,7 @@
 
 ## 📝 Descrição
 
+A solução proposta é um marketplace para a contratação de serviços terceirizados remotos ligados à tecnologia, como consultoria e desenvolvimento de produtos. O marketplace funcionará como uma plataforma para conectar freelancers especializados em tecnologia a clientes que buscam esses serviços. O diferencial do projeto é a realização de todas as transações de pagamento em BTG dol, uma stablecoin brasileira lastreada no dólar, o que reduzirá os custos fiscais e taxas para ambas as partes envolvidas.
 
 ## 🎓 Referências
 

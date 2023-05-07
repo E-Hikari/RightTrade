@@ -5,13 +5,13 @@
 ## RightTrade
 
 ## Integrantes: 
-- <a href="https://www.linkedin.com/in/celine-souza-1a38aa225/">Celine Souza</a>
+- <a href="">Bruno Wasserstein</a>
 - <a href="https://www.linkedin.com/in/emely-tavares-3575ba24a/">Emely Tavares</a>
-- <a href="https://www.linkedin.com/in/enya-oliveira-636566240/">Enya Oliveira Arruda</a> 
+- <a href="">Isabella Fernandes Saldanha</a> 
 - <a href="https://www.linkedin.com/in/estherhikari/">Esther Hikari</a> 
-- <a href="https://www.linkedin.com/in/guilherme-novaes-lima">Guilherme Novaes Lima</a>
-- <a href="https://www.linkedin.com/in/mariana-g%C3%B6rresen-b03059210/">Mariana Görresen</a> 
-- <a href="https://www.linkedin.com/in/renan-ribeiro-31a205247/">Renan Ribeiro</a> 
+- <a href="">Lucas Henrique Sales de Souza</a>
+- <a href="">Lídia Mariano</a> 
+
 
 ## 📝 Descrição
 
